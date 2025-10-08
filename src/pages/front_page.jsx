@@ -2,6 +2,7 @@ import Greeting from "../components/front_page/greeting";
 import NavBar from "../components/navbar";
 import WhoAmI from "../components/front_page/who_am_i";
 import ResearchWork from "../components/front_page/research";
+import ContactMe from "../components/front_page/contact_me";
 
 export default function Frontpage() {
   return (
@@ -14,6 +15,7 @@ export default function Frontpage() {
       <Greeting />
       <WhoAmI />
       <ResearchWork />
+      <ContactMe/>
     </div>
   );
 }
