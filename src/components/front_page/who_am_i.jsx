@@ -12,10 +12,10 @@ export default function WhoAmI() {
 
           {/* Text */}
           <div className="mx-[25px] flex flex-col justify-center space-y-6 lg:text-left">
-            <p className="libre-franklin-bold text-[48px] leading-none md:mt-[10vh] md:text-[56px] lg:text-[64px] xl:text-[80px]">
+            <p className="libre-franklin-bold text-[28px] leading-none md:mt-[10vh] md:text-[56px] lg:text-[60px] xl:text-[80px]">
               🤔 Who Am I?
             </p>
-            <p className="libre-franklin-normal mb-[4vh] text-[16px] leading-[1.3] md:mt-[2vh] md:text-[24px] lg:text-[32px] xl:text-[40px]">
+            <p className="libre-franklin-normal mb-[6vh] text-[16px] leading-[1.3] md:mt-[2vh] md:text-[24px] lg:text-[32px] xl:text-[40px]">
               I am a Master's Student studying <i>Computer Science</i> at 🔱{" "}
               <u>Arizona State University</u>. My research work is in{" "}
               <b>💪 Fault Tolerance for ML Models</b>, and{" "}

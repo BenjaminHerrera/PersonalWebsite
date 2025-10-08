@@ -34,17 +34,17 @@ export default function ContactMe() {
         {/* Header */}
         <p
           ref={ref}
-          className={`libre-franklin-bold text-[48px] md:text-[96px]`}
+          className={`libre-franklin-bold text-[32px] md:text-[96px]`}
         >
           Need a hand?
         </p>
-        <p ref={ref} className={`lato-regular text-[32px] md:text-[56px]`}>
-          Let's Work Together!
+        <p ref={ref} className={`lato-regular text-[16px] md:text-[56px]`}>
+          Let's Work Together 🙌
         </p>
 
         {/* Socials */}
-        <div className="mt-[7vh] flex items-center justify-center text-[24px]">
-          <MdOutlineEmail className="mt-[1px] mr-[12px] text-[32px] md:text-[48px]" />
+        <div className="libre-franklin-bold mt-[7vh] flex items-center justify-center text-[24px] md:text-[32px] text-blue-100">
+          📩
           b10@asu.edu
         </div>
       </div>

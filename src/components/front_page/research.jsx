@@ -37,7 +37,7 @@ export default function ResearchWork() {
 
           {/* Text */}
           <div className="mt-[7vh] flex max-w-7xl flex-col justify-center items-center space-y-6 text-center lg:mt-[1vh]">
-            <p className="libre-franklin-bold text-[48px] leading-none md:text-[56px] lg:text-[64px] xl:text-[80px]">
+            <p className="libre-franklin-bold text-[28px] leading-none md:text-[56px] lg:text-[64px] xl:text-[80px]">
                 🧪 My Research
             </p>
             <p className="libre-franklin-normal text-[16px] leading-[1.3] md:text-[24px] lg:mb-[5vh] lg:text-[32px] xl:text-[40px]">
