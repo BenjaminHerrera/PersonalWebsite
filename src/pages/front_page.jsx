@@ -1,5 +1,6 @@
 import Greeting from "../components/front_page/greeting";
 import NavBar from "../components/navbar";
+import WhoAmI from "../components/front_page/who_am_i";
 
 export default function Frontpage() {
   return (
@@ -10,6 +11,7 @@ export default function Frontpage() {
       </div>
 
       <Greeting />
+      <WhoAmI />
     </div>
   );
 }
