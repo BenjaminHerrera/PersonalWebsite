@@ -1,6 +1,7 @@
 // Grab every main.md under /src/posts/**/main.md as raw text at build time
 const modules = import.meta.glob("/src/posts/**/main.md", {
-  as: "raw",
+  query: "?raw",
+  import: "default",
   eager: true,
 });
 
