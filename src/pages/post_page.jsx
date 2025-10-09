@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../components/navbar.jsx";
 import remarkGfm from "remark-gfm";
+import config from "../config.js";
 
 export default function Post() {
   const { slug } = useParams();
@@ -11,12 +12,20 @@ export default function Post() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`/posts/${slug}/main.md`);
-      if (!res.ok) return;
-      const text = await res.text();
-      const [data, body] = parseFrontMatter(text);
-      setMeta(data);
-      setContent(body);
+      try {
+        const url = `https://raw.githubusercontent.com/BenjaminHerrera/PersonalPosts/main/${encodeURIComponent(slug)}/main.md`;
+        console.log("Fetching:", url);
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const [data, body] = parseFrontMatter(text);
+        setMeta(data);
+        setContent(body);
+      } catch (e) {
+        console.error(e);
+        setMeta({});
+        setContent(`# Not found\n\nCouldn’t load this post.`);
+      }
     })();
   }, [slug]);
 
@@ -25,8 +34,8 @@ export default function Post() {
       <div className="fixed top-0 left-0 z-50 w-full">
         <NavBar />
       </div>
-      <div className="mt-[14vh] mx-auto max-w-2xl">
-        <p className="libre-franklin-bold mb-2 text-[32px] lg:text-[48px] font-bold">
+      <div className="mx-auto mt-[14vh] max-w-2xl">
+        <p className="libre-franklin-bold mb-2 text-[32px] font-bold lg:text-[48px]">
           {meta.title}
         </p>
         {meta.date && <p className="mb-8 text-gray-400">{meta.date}</p>}

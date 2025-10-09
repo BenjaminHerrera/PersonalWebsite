@@ -5,6 +5,9 @@
  */
 
 const config = {
+    // Website Information
+    github_repo_name: "/PersonalWebsite/",
+
     // Company Information
     company: {
         name: "Ben H",
