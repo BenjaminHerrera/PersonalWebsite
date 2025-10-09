@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineEmail } from "react-icons/md";
 
 export default function ContactMe() {
   const ref = useRef(null);
@@ -38,7 +37,7 @@ export default function ContactMe() {
         >
           Need a hand?
         </p>
-        <p ref={ref} className={`lato-regular text-[16px] md:text-[56px]`}>
+        <p ref={ref} className={`libre-franklin-normal text-[16px] md:text-[56px]`}>
           Let's Work Together 🙌
         </p>
 

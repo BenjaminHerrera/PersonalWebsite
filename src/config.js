@@ -24,7 +24,7 @@ const config = {
     // Navigation Configuration
     navigation: {
         items: [
-            { label: "News", link: "/news", external: false },
+            { label: "Posts", link: "/news", external: false },
             { label: "Research", link: "/research", external: false },
             { label: "Experiences", link: "/experiences", external: false },
             { label: "Projects", link: "/projects", external: false },

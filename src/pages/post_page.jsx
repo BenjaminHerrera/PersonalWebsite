@@ -1,0 +1,58 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import NavBar from "../components/navbar.jsx";
+import remarkGfm from "remark-gfm";
+
+export default function Post() {
+  const { slug } = useParams();
+  const [meta, setMeta] = useState({});
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`/src/posts/${slug}/main.md`);
+      if (!res.ok) return;
+      const text = await res.text();
+      const [data, body] = parseFrontMatter(text);
+      setMeta(data);
+      setContent(body);
+    })();
+  }, [slug]);
+
+  return (
+    <div className="min-h-screen bg-slate-900 p-8 text-white">
+      <div className="fixed top-0 left-0 z-50 w-full">
+        <NavBar />
+      </div>
+      <div className="mt-[14vh] mx-auto max-w-2xl">
+        <p className="libre-franklin-bold mb-2 text-[32px] lg:text-[48px] font-bold">
+          {meta.title}
+        </p>
+        {meta.date && <p className="mb-8 text-gray-400">{meta.date}</p>}
+        <hr />
+        <br />
+        <br />
+        <br />
+        <article className="prose prose-invert max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+        </article>
+      </div>
+    </div>
+  );
+}
+
+function parseFrontMatter(raw) {
+  if (!raw.startsWith("---")) return [{}, raw];
+  const end = raw.indexOf("\n---", 3);
+  if (end === -1) return [{}, raw];
+  const fm = raw.slice(3, end).trim();
+  const body = raw.slice(end + 4).trim();
+  const data = Object.fromEntries(
+    fm.split("\n").map((line) => {
+      const [k, ...rest] = line.split(":");
+      return [k.trim(), rest.join(":").trim().replace(/^"|"$/g, "")];
+    }),
+  );
+  return [data, body];
+}
