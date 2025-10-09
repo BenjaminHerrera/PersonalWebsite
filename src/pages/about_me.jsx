@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import NavBar from "../components/navbar.jsx";
 import ResearchItem from "../components/cv_like/research_item.jsx";
 import ExperienceItem from "../components/cv_like/experience_item.jsx";
 
 export default function AboutMe() {
+  // Scroll to top whenever route changes (including hash routes)
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname, hash]);
+
   const EXPERIENCE_ITEMS = [
     {
       title: "Student Researcher",
@@ -191,7 +199,11 @@ export default function AboutMe() {
     },
     {
       title: "Featured Researcher",
-      note: <i>Arizona State University - Fulton Undergraduate Research Initiative</i>,
+      note: (
+        <i>
+          Arizona State University - Fulton Undergraduate Research Initiative
+        </i>
+      ),
       date: "MAY 2022",
     },
     {
@@ -242,7 +254,8 @@ export default function AboutMe() {
       org: "Arizona State University",
       location: "Tempe, AZ",
       date: "JAN 2025 - MAY 2025",
-      logoSrc: "https://wallpapers.com/images/hd/arizona-state-university-logo-hnfhf0d62631f8fj.png",
+      logoSrc:
+        "https://wallpapers.com/images/hd/arizona-state-university-logo-hnfhf0d62631f8fj.png",
       bullets: [
         "Assisted grading duties for roughly 500 students in CSE 340: Programming Languages for Prof. James Gordon",
       ],
@@ -252,7 +265,8 @@ export default function AboutMe() {
       org: "Arizona State University",
       location: "Tempe, AZ",
       date: "JAN 2025 - MAY 2025",
-      logoSrc: "https://wallpapers.com/images/hd/arizona-state-university-logo-hnfhf0d62631f8fj.png",
+      logoSrc:
+        "https://wallpapers.com/images/hd/arizona-state-university-logo-hnfhf0d62631f8fj.png",
       bullets: [
         "Performed teaching duties for about 300 students in CSE 310: Data Structures and Algorithms for Prof. Yiran Luo",
       ],
@@ -262,7 +276,8 @@ export default function AboutMe() {
       org: "Cyber Security Policy Development Club ",
       location: "Tempe, AZ",
       date: "AUG 2024 - DEC 2024",
-      logoSrc: "https://cdn.discordapp.com/icons/1286859783235702930/e5957177e023ca2e3168895af34914ea.png?size=80&quality=lossless",
+      logoSrc:
+        "https://cdn.discordapp.com/icons/1286859783235702930/e5957177e023ca2e3168895af34914ea.png?size=80&quality=lossless",
       bullets: [
         "Taught members national security policy and created a one-credit class taught by Colonel Bruce Pagel (Ret.)",
       ],

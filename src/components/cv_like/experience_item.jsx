@@ -22,9 +22,9 @@ export default function ExperienceItem({
 }) {
   return (
     <li className="group relative md:w-3xl md:max-w-3xl rounded-2xl border border-white/20 bg-white/5 p-4 transition-colors hover:border-white/40 hover:drop-shadow-lg hover:drop-shadow-white/20 md:p-5">
-      {/* Top row: logo | content (stays side-by-side) */}
+      {/* Top row: logo | content */}
       <div className="flex items-start gap-4">
-        {/* Logo (fixed size) */}
+        {/* Logo */}
         <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/10 md:h-20 md:w-20">
           {logoSrc ? (
             <img
@@ -42,40 +42,35 @@ export default function ExperienceItem({
 
         {/* Content column */}
         <div className="min-w-0 flex-1">
-          {/* Row inside content: [text block | date] */}
-          <div className="flex items-start justify-between gap-3">
-            {/* Text block wraps inside, stays beside logo */}
-            <div className="min-w-0">
+          {/* sm: stack [date] then [text]; md+: row [text | date] */}
+          <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between md:gap-3">
+            {/* Date */}
+            {date && (
+              <time
+                dateTime={date}
+                className="order-1 self-start shrink-0 whitespace-nowrap text-[16px] text-white tabular-nums md:order-2 md:self-auto md:text-[20px]"
+              >
+                {date}
+              </time>
+            )}
+
+            {/* Text block */}
+            <div className="order-2 min-w-0 md:order-1">
               <h3 className="block w-full text-[18px] font-semibold tracking-tight text-white md:text-[20px]">
                 {title && <span className="text-white"><b>{title}</b></span>}
                 {org && <span className="text-white/80">, {org}</span>}
               </h3>
 
-              {location && (
+              {(location || meta) && (
                 <p className="mt-0.5 w-full text-sm text-white/60 break-words">
-                  {location}{meta && (<> — </>)}{meta}
+                  {location}
+                  {meta && <> — {meta}</>}
                 </p>
               )}
-
-              {/* {meta && (
-                <p className="mt-1 w-full text-sm text-zinc-300 break-words">
-                  {meta}
-                </p>
-              )} */}
             </div>
-
-            {/* Date pinned right */}
-            {date && (
-              <time
-                dateTime={date}
-                className="shrink-0 whitespace-nowrap text-right text-[16px] text-white tabular-nums md:text-[20px]"
-              >
-                {date}
-              </time>
-            )}
           </div>
 
-          {/* Bullets below, aligned with content column */}
+          {/* Bullets */}
           {bullets.length > 0 && (
             <div className="mt-2 text-[12px] text-zinc-200">
               {bullets.map((b, i) => (
