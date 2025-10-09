@@ -11,7 +11,7 @@ export default function Post() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`/src/posts/${slug}/main.md`);
+      const res = await fetch(`/posts/${slug}/main.md`);
       if (!res.ok) return;
       const text = await res.text();
       const [data, body] = parseFrontMatter(text);
