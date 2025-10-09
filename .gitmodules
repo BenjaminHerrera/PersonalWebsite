@@ -1,0 +1,6 @@
+[submodule "public/posts"]
+	path = public/posts
+	url = https://github.com/BenjaminHerrera/PersonalPosts.git
+[submodule "src/posts"]
+	path = src/posts
+	url = https://github.com/BenjaminHerrera/PersonalPosts.git
