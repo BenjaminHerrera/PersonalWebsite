@@ -30,7 +30,7 @@ export default function ExperienceItem({
             <img
               src={logoSrc}
               alt={logoAlt || org}
-              className="max-h-full max-w-full object-contain p-1.5"
+              className="max-h-full max-w-full object-contain p-1.5 rounded-xl"
               loading="lazy"
             />
           ) : (
@@ -53,7 +53,7 @@ export default function ExperienceItem({
 
               {location && (
                 <p className="mt-0.5 w-full text-sm text-white/60 break-words">
-                  {location} - {meta}
+                  {location}{meta && (<> — </>)}{meta}
                 </p>
               )}
 

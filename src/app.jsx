@@ -4,7 +4,7 @@ import Frontpage from "./pages/front_page.jsx";
 import MeetingRedirectPage from "./pages/meeting_redirect_page.jsx";
 import PostsFront from "./pages/posts_front.jsx";
 import Post from "./pages/post_page.jsx";
-import ResearchPage from "./pages/research.jsx";
+import AboutMe from "./pages/about_me.jsx";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Route path="/meet" element={<MeetingRedirectPage />} />
       <Route path="/posts" element={<PostsFront />} />
       <Route path="/posts/:slug" element={<Post />} />
-      <Route path="/research" element={<ResearchPage />} />
+      <Route path="/about_me" element={<AboutMe />} />
     </Routes>
   );
 }

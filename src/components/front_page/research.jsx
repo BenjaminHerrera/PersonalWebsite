@@ -24,7 +24,7 @@ export default function ResearchWork() {
               <b>🦅 Air Force Research Laboratory</b>.
             </p>
             <motion.a
-              href="#research"
+              href="#about_me"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="group relative inline-flex w-fit items-center justify-center overflow-hidden rounded-full border-2 border-transparent px-10 py-4 text-lg font-semibold text-white transition-all duration-500 ease-out"

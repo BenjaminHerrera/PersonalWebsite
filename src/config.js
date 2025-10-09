@@ -25,10 +25,7 @@ const config = {
     navigation: {
         items: [
             { label: "Posts", link: "/posts", external: false },
-            { label: "Research", link: "/research", external: false },
-            { label: "Experiences", link: "/experiences", external: false },
-            { label: "Projects", link: "/projects", external: false },
-            { label: "Contact Me", link: "/contact", external: false },
+            { label: "About Me", link: "/about_me", external: false },
         ],
     },
 
