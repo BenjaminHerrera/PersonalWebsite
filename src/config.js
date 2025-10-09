@@ -5,11 +5,8 @@
  */
 
 const config = {
-    // Website Information
-    github_repo_name: "/PersonalWebsite/",
-
     // Company Information
-    company: {
+    constants: {
         name: "Ben H",
         fullName: "Benjamin Herrera",
         website: "https://benherrera.dev",
@@ -27,7 +24,7 @@ const config = {
     // Navigation Configuration
     navigation: {
         items: [
-            { label: "Posts", link: "/news", external: false },
+            { label: "Posts", link: "/posts", external: false },
             { label: "Research", link: "/research", external: false },
             { label: "Experiences", link: "/experiences", external: false },
             { label: "Projects", link: "/projects", external: false },
@@ -44,10 +41,10 @@ const config = {
 };
 
 // Export individual config sections for convenience
-export const { company, api, env, ui, navigation, seo, features, services, dev } = config;
+export const { constants: company, api, env, ui, navigation, seo, features, services, dev } = config;
 
 // Export specific commonly used values
-export const COMPANY_NAME = config.company.name;
+export const NAME = config.constants.name;
 export const IS_DEVELOPMENT = config.env.isDevelopment;
 export const IS_PRODUCTION = config.env.isProduction;
 

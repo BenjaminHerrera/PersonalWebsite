@@ -1,4 +1,4 @@
-import { COMPANY_NAME } from "../../config.js";
+import { NAME } from "../../config.js";
 
 export default function PostsCard({ title, text }) {
   return (
@@ -6,7 +6,7 @@ export default function PostsCard({ title, text }) {
       {/* Top Half - Default image */}
       <div className="my-auto flex h-1/2 w-full items-center justify-center overflow-hidden bg-gradient-to-br from-blue-300 to-[#ffc194] lg:h-2/3">
         <div className="libre-franklin-bold text-center text-[96px] tracking-[-0.1em] text-shadow-lg md:text-[96px] lg:text-[136px]">
-          {COMPANY_NAME}
+          {NAME}
         </div>
       </div>
 

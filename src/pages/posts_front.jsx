@@ -1,14 +1,9 @@
-import { COMPANY_NAME } from "../config.js";
-import { FaMailBulk } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavBar from "../components/navbar.jsx";
 import PostsCard from "../components/news/PostsCard.jsx";
 import { post_items } from "../utils/post_list.jsx";
 
 export default function PostsFront() {
-  const LOREM_IPSUM_LONG =
-    "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.";
-
   // Render the first page of the posts page
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-white">
@@ -19,7 +14,7 @@ export default function PostsFront() {
 
         {/* Image Overlay With Fade to Transparent */}
         <div
-          className="absolute top-0 left-0 h-[110vh] w-full bg-cover bg-top bg-no-repeat md:bg-contain"
+          className="absolute top-0 left-0 h-[110vh] w-full bg-cover bg-top bg-no-repeat "
           style={{
             backgroundImage: `url("https://images.pexels.com/photos/6072455/pexels-photo-6072455.jpeg")`,
             maskImage:
@@ -54,7 +49,7 @@ export default function PostsFront() {
         <div className="flex flex-col items-center pt-[15vh] md:pt-[16vh] lg:pt-[20vh]">
           {/* Header */}
           <div className="flex flex-wrap items-center justify-center text-[24px] md:text-[192px]">
-            <div className="libre-franklin-bold ml-[8px] text-[48px] text-shadow-lg md:ml-[24px] md:text-[80px] lg:ml-[24px] lg:text-[112px]">
+            <div className="libre-franklin-bold text-[48px] text-shadow-lg md:text-[80px] lg:text-[112px]">
               📩 Ben's Posts
             </div>
           </div>
@@ -62,7 +57,7 @@ export default function PostsFront() {
           {/* News Grid */}
           <div className="mx-auto mt-[4vh] grid max-w-7xl grid-cols-1 gap-[32px] px-8 py-4 md:mt-[5vh] md:grid-cols-2 lg:mt-[7vh] xl:grid-cols-3">
             {post_items.map((item, index) => (
-              <Link key={item.slug} to={`/news/${item.slug}`}>
+              <Link key={item.slug} to={`/posts/${item.slug}`}>
                 <PostsCard key={index} title={item.title} text={item.text} />
               </Link>
             ))}

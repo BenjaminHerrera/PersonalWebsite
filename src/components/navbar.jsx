@@ -1,4 +1,4 @@
-import { COMPANY_NAME, navigation } from "../config.js";
+import { NAME, navigation } from "../config.js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function NavBar() {
           {/* Name */}
           <Link to="/" className="flex-shrink-0">
             <h1 className="libre-franklin-bold text-3xl tracking-[-0.1em] text-white md:text-5xl">
-              {COMPANY_NAME}
+              {NAME}
             </h1>
           </Link>
 
@@ -24,7 +24,7 @@ export default function NavBar() {
             {navigation.items.map((item, index) => (
               <Link
                 to={item.link}
-                key={index}
+                key={`default_button-${item.label}`}
                 className="libre-franklin-normal nav-button nav-button-desktop"
               >
                 {item.label}
@@ -73,6 +73,7 @@ export default function NavBar() {
             {navigation.items.map((item, index) => (
               <Link
                 to={item.link}
+                key={`mobile_button-${item.label}`}
                 className="libre-franklin-normal nav-button nav-button-mobile block w-full text-left"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
