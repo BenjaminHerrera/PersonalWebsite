@@ -191,8 +191,8 @@ const config = {
         ],
         note: <>In Preparation</>,
         links: [
-          { label: "paper", href: "#" },
-          { label: "code", href: "#" },
+          { label: "paper", href: "https://drive.google.com/file/d/1WCSrYzXtipBbqSIfqcLn_cxk3lEeIwZu/view?usp=sharing" },
+          { label: "code", href: "https://drive.google.com/file/d/19KHIltu5xeoHyioU6NVCR0cWWwQeisme/view?usp=sharing" },
         ],
       },
     ],
