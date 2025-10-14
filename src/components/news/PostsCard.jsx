@@ -1,4 +1,4 @@
-import { NAME } from "../../config.js";
+import { NAME } from "../../config.jsx";
 
 export default function PostsCard({ title, text }) {
   return (

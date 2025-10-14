@@ -1,4 +1,4 @@
-import { NAME, navigation } from "../config.js";
+import { NAME, navigation } from "../config.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

@@ -1,7 +1,8 @@
 import Greeting from "../components/front_page/greeting";
 import NavBar from "../components/navbar";
 import WhoAmI from "../components/front_page/who_am_i";
-import ResearchWork from "../components/front_page/research";
+import ResearchInterests from "../components/front_page/research";
+import Background from "./background";
 import ContactMe from "../components/front_page/contact_me";
 
 export default function Frontpage() {
@@ -14,8 +15,9 @@ export default function Frontpage() {
 
       <Greeting />
       <WhoAmI />
-      <ResearchWork />
-      <ContactMe/>
+      <ResearchInterests />
+      <Background include_navbar={false} />
+      <ContactMe />
     </div>
   );
 }

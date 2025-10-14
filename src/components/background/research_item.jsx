@@ -8,6 +8,7 @@ export default function ResearchItem({
   note, // e.g., "Submitting to MLSys ’26"
   links = [], // [{ label: "paper", href: "/paper.pdf" }, ...]
   special = false,
+  bullets = [],
 }) {
   return (
     <li
@@ -53,6 +54,17 @@ export default function ResearchItem({
               </span>
             )}
           </div>
+
+          {/* Bullets */}
+          {bullets.length > 0 && (
+            <ul className="mt-2 list-disc pl-5 text-[12px] text-zinc-200">
+              {bullets.map((b, i) => (
+                <li key={i} className="marker:text-zinc-400">
+                  {b}
+                </li>
+              ))}
+            </ul>
+          )}
 
           {/* Links (below title & authors) */}
           {links.length > 0 && (

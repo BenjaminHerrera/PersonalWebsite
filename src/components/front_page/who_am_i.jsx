@@ -15,14 +15,20 @@ export default function WhoAmI() {
             <p className="libre-franklin-bold text-[28px] leading-none md:mt-[10vh] md:text-[56px] lg:text-[60px] xl:text-[80px]">
               🤔 Who Am I?
             </p>
-            <p className="libre-franklin-normal mb-[6vh] text-[16px] leading-[1.3] md:mt-[2vh] md:text-[24px] lg:text-[32px] xl:text-[40px]">
-              I am a Master's Student studying <i>Computer Science</i> at 🔱{" "}
+            <div className="libre-franklin-normal mb-[6vh] text-[16px] leading-[1.3] md:mt-[2vh] md:text-[24px] lg:text-[32px] xl:text-[40px]">
+              I am a Master's Student studying Computer Science at 🔱{" "}
               <u>Arizona State University</u>. My research work is in{" "}
-              <b>💪 Fault Tolerance for ML Models</b>, and{" "}
-              <b>🤏 Model Compression & Optimization</b>. This ties to applications
-              in 🌏 <i>Real-time Geospatial Analysis</i> and{" "}
-              🌙 <i>ML for Space Systems.</i>
-            </p>
+              <b>🤏 Model Compression & Optimization</b>, and{" "}
+              <b>💪 Fault Tolerance for ML Models</b>.
+              <br></br>
+              <br></br>
+              I am also happy to announce that I have been recently
+              funded by the{" "}
+              <b className="text-amber-300 drop-shadow-lg drop-shadow-white/30">
+                NSF GRFP
+              </b>
+              !
+            </div>
           </div>
         </div>
       </div>

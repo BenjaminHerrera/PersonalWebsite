@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../components/navbar.jsx";
 import remarkGfm from "remark-gfm";
-import config from "../config.js";
+import config from "../config.jsx";
 
 export default function Post() {
   const { slug } = useParams();
