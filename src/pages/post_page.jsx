@@ -36,7 +36,34 @@ export default function Post() {
     })();
   }, [slug]);
 
-  // Custom renderer: if a markdown link points to a .pdf, embed it inline
+  useEffect(() => {
+    if (!meta) return;
+    if (meta.title) document.title = `${meta.title} – Ben Herrera`;
+
+    const set = (name, content) => {
+      if (!content) return;
+      let el = document.querySelector(
+        `meta[name="${name}"], meta[property="${name}"]`,
+      );
+      if (!el) {
+        el = document.createElement("meta");
+        if (name.startsWith("og:") || name.startsWith("article:")) {
+          el.setAttribute("property", name);
+        } else {
+          el.setAttribute("name", name);
+        }
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    set("description", meta.description);
+    set("og:title", meta.title);
+    set("og:description", meta.description);
+    if (meta.image) set("og:image", meta.image);
+    set("article:published_time", meta.date);
+  }, [meta]);
+
   function LinkOrPdf({ href = "", children }) {
     const isPdf =
       typeof href === "string" && href.toLowerCase().endsWith(".pdf");
