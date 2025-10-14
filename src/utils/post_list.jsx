@@ -59,6 +59,7 @@ const records = Object.entries(modules).map(([path, raw]) => {
   return {
     title: fm.title,
     text: fm.description,
+    image: fm.image,
     slug,
     _date: parseFrontmatterDate(fm.date),
   };
@@ -68,8 +69,9 @@ const records = Object.entries(modules).map(([path, raw]) => {
 records.sort((a, b) => b._date.getTime() - a._date.getTime());
 
 // Export in requested shape
-export const post_items = records.map(({ title, text, slug }) => ({
+export const post_items = records.map(({ title, text, image, slug }) => ({
   title,
   text,
+  image,
   slug,
 }));

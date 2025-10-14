@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/navbar.jsx";
-import PostsCard from "../components/news/PostsCard.jsx";
+import PostsCard from "../components/posts/PostsCard.jsx";
 import { post_items } from "../utils/post_list.jsx";
 
 export default function PostsFront() {
+  console.log(post_items)
+
   // Render the first page of the posts page
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-white">
@@ -58,7 +60,7 @@ export default function PostsFront() {
           <div className="mx-auto mt-[4vh] grid max-w-7xl grid-cols-1 gap-[32px] px-8 py-4 md:mt-[5vh] md:grid-cols-2 lg:mt-[7vh] xl:grid-cols-3">
             {post_items.map((item, index) => (
               <Link key={item.slug} to={`/posts/${item.slug}`}>
-                <PostsCard key={index} title={item.title} text={item.text} />
+                <PostsCard key={index} title={item.title} text={item.text} image={item.image} />
               </Link>
             ))}
           </div>

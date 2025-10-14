@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import NavBar from "../components/navbar.jsx";
 import remarkGfm from "remark-gfm";
-import config from "../config.jsx";
 
 export default function Post() {
   const { slug } = useParams();
@@ -13,8 +12,16 @@ export default function Post() {
   useEffect(() => {
     (async () => {
       try {
-        const url = `https://raw.githubusercontent.com/BenjaminHerrera/PersonalPosts/main/${encodeURIComponent(slug)}/main.md`;
-        console.log("Fetching:", url);
+        const isProd =
+          (typeof import.meta !== "undefined" &&
+            import.meta.env &&
+            import.meta.env.PROD) ||
+          process.env.NODE_ENV === "production";
+        const url = isProd
+          ? `https://raw.githubusercontent.com/BenjaminHerrera/PersonalPosts/main/${encodeURIComponent(
+              slug,
+            )}/main.md`
+          : `/src/posts/${slug}/main.md`;
         const res = await fetch(url, { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const text = await res.text();
@@ -24,10 +31,56 @@ export default function Post() {
       } catch (e) {
         console.error(e);
         setMeta({});
-        setContent(`# Not found\n\nCouldn’t load this post.`);
+        setContent(`# Not found\n\nCouldn't load this post.`);
       }
     })();
   }, [slug]);
+
+  // Custom renderer: if a markdown link points to a .pdf, embed it inline
+  function LinkOrPdf({ href = "", children }) {
+    const isPdf =
+      typeof href === "string" && href.toLowerCase().endsWith(".pdf");
+    if (!isPdf) {
+      return (
+        <a
+          href={href}
+          className="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
+    const titleText =
+      (Array.isArray(children) ? children.join(" ") : children) ||
+      "PDF document";
+
+    return (
+      <div className="my-6">
+        <div className="h-[80vh] w-full overflow-hidden rounded-xl border border-white/10">
+          <iframe
+            src={href}
+            title={String(titleText)}
+            className="h-full w-full"
+            loading="lazy"
+          />
+        </div>
+        <div className="mt-2 text-[8px] text-gray-400">
+          If the PDF doesn't load,{" "}
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            open it in a new tab
+          </a>
+          .
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-900 p-8 text-white">
@@ -44,7 +97,14 @@ export default function Post() {
         <br />
         <br />
         <article className="prose prose-invert max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              a: LinkOrPdf,
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         </article>
       </div>
     </div>
