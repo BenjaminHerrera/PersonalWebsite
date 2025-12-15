@@ -149,7 +149,7 @@ const config = {
         title: "Student Researcher",
         org: "Active Perception Group",
         location: "Tempe, AZ",
-        date: "AUG 2021 - DEC 2022",
+        date: "AUG 2021 - DEC 2023",
         logoSrc:
           "https://wallpapers.com/images/hd/arizona-state-university-logo-hnfhf0d62631f8fj.png",
         meta: (

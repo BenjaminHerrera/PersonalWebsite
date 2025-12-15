@@ -40,9 +40,9 @@ export default function Greeting() {
 
           {/* Image */}
           <img
-            src="/self_photo.png"
+            src="/self_photo_main.png"
             alt="Benjamin Herrera"
-            className="h-[45vh] w-[45vh] xl:h-[60vh] xl:w-[60vh] object-cover"
+            className="h-[40vh] w-[60vh] xl:h-[60vh] xl:w-[85vh] object-cover"
           />
         </div>
       </div>
