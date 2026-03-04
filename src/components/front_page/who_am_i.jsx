@@ -20,14 +20,6 @@ export default function WhoAmI() {
               <u>Arizona State University</u>. My research work is in{" "}
               <b>🤏 Model Compression & Optimization</b>, and{" "}
               <b>💪 Fault Tolerance for ML Models</b>.
-              <br></br>
-              <br></br>
-              I am also happy to announce that I have been recently
-              funded by the{" "}
-              <b className="text-amber-300 drop-shadow-lg drop-shadow-white/30">
-                NSF GRFP
-              </b>
-              !
             </div>
           </div>
         </div>

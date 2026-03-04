@@ -182,17 +182,23 @@ const config = {
     ],
     publications: [
       {
-        title: "FUSE: Mixture of Experts as Block Sparse Attention",
+        title:
+          "Multi-Head LatentMoE and Head Parallel: Communication-Efficient and Deterministic MoE Parallelism",
         date: "OCT 2025",
         authors: [
           { name: "Chenwei Cui", marker: "*" },
+          { name: "Rockwell Jackson", marker: "*" },
           { name: "Benjamin Herrera", you: true, marker: "*" },
+          { name: "Ana Marıa Tarano" },
           { name: "Hannah Kerner" },
         ],
-        note: <>In Preparation</>,
+        note: <>Pre-print</>,
         links: [
-          { label: "paper", href: "https://drive.google.com/file/d/1WCSrYzXtipBbqSIfqcLn_cxk3lEeIwZu/view?usp=sharing" },
-          { label: "code", href: "https://drive.google.com/file/d/19KHIltu5xeoHyioU6NVCR0cWWwQeisme/view?usp=sharing" },
+          { label: "paper", href: "https://arxiv.org/pdf/2602.04870v1" },
+          {
+            label: "code",
+            href: "https://github.com/kerner-lab/Sparse-GPT-Pretraining",
+          },
         ],
       },
     ],
@@ -262,7 +268,47 @@ const config = {
         ],
       },
     ],
-    academic_accolades: [
+    accolades: [
+      {
+        title: "Dean's & Departmental Fellowship for Excellence",
+        note: (
+          <>
+            <i>University of Colorado Boulder</i> — <b>$5,000</b> for the
+            FY26-27 Year
+          </>
+        ),
+        date: "FEB 2026",
+      },
+      {
+        title: "Dean's Future Leaders Fellowship",
+        note: (
+          <>
+            <i>University of Colorado Boulder</i> — <b>$2,500</b> for the
+            FY26-27 Year
+          </>
+        ),
+        date: "FEB 2026",
+      },
+      {
+        title: "Graduate Access and Retention Fellowship",
+        note: (
+          <>
+            <i>University of Colorado Boulder</i> — <b>$5,000</b> for the
+            FY26-27 Year
+          </>
+        ),
+        date: "FEB 2026",
+      },
+      {
+        title: "Early Career Professional Development Fellowship",
+        note: (
+          <>
+            <i>University of Colorado Boulder</i> — <b>$1,000</b> Travel Funding
+            for the FY26-27 Year
+          </>
+        ),
+        date: "FEB 2026",
+      },
       {
         title: "NSF Graduate Research Fellowship",
         note: (
@@ -272,7 +318,6 @@ const config = {
           </>
         ),
         date: "MAR 2025",
-        special: true,
       },
       {
         title: "Accelerated Master's Award",
@@ -303,9 +348,34 @@ const config = {
         date: "FEB 2025",
       },
       {
+        title: "Semi-Finalists",
+        note: <i>Cyber 9/12 Challenge, Washington D.C.</i>,
+        date: "FEB 2025",
+      },
+      {
+        title: "Best Oral Presentation",
+        note: <i>Cyber 9/12 Challenge, Washington D.C.</i>,
+        date: "FEB 2025",
+      },
+      {
         title: "2nd Place Crowd Favorite",
         note: <i>Air Force Research Laboratory</i>,
         date: "AUG 2024",
+      },
+      {
+        title: "Warrior Flight",
+        note: <i>Arizona State University - AFROTC Detachment 025</i>,
+        date: "DEC 2023",
+      },
+      {
+        title: "Most Dedicated Cadet Award",
+        note: <i>Arizona State University - AFROTC Detachment 025</i>,
+        date: "DEC 2023",
+      },
+      {
+        title: "Cadet of the Semester Nomination",
+        note: <i>Arizona State University - AFROTC Detachment 025</i>,
+        date: "NOV 2023",
       },
       {
         title: "Featured Researcher",
@@ -339,38 +409,6 @@ const config = {
         date: "AUG 2021",
       },
     ],
-    other_accolades: [
-      {
-        title: "Best Oral Presentation",
-        note: <i>Cyber 9/12 Challenge, Washington D.C.</i>,
-        date: "FEB 2025",
-      },
-      {
-        title: "Semi-Finalists",
-        note: <i>Cyber 9/12 Challenge, Washington D.C.</i>,
-        date: "FEB 2025",
-      },
-      {
-        title: "Most Creative Policy",
-        note: <i>Cyber 9/12 Challenge, Washington D.C.</i>,
-        date: "FEB 2024",
-      },
-      {
-        title: "Warrior Flight",
-        note: <i>Arizona State University - AFROTC Detachment 025</i>,
-        date: "DEC 2023",
-      },
-      {
-        title: "Most Dedicated Cadet Award",
-        note: <i>Arizona State University - AFROTC Detachment 025</i>,
-        date: "DEC 2023",
-      },
-      {
-        title: "Cadet of the Semester Nomination",
-        note: <i>Arizona State University - AFROTC Detachment 025</i>,
-        date: "NOV 2023",
-      },
-    ],
     teaching: [
       {
         title: "Graduate Student Assistant",
@@ -400,8 +438,20 @@ const config = {
     leadership: [
       {
         title: "Master of Ceremonies",
+        org: "Diocese of Phoenix",
+        location: "Phoenix, AZ",
+        date: "JAN 2026 - Present",
+        logoSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Coat_of_arms_of_the_Diocese_of_Phoenix.svg/250px-Coat_of_arms_of_the_Diocese_of_Phoenix.svg.png",
+        bullets: [
+          "Assisted Bishops and Cardinals in the ordination of the Diocese's new Auxiliary Bishop, Bishop Dai Bui",
+          "Coordinated other liturgies and masses across the diocese including Simbang Gabi, Rite of Election, etc.",
+        ],
+      },
+      {
+        title: "Master of Ceremonies",
         org: "Saint Mary's Basilica",
-        location: "Tempe, AZ",
+        location: "Phoenix, AZ",
         date: "JAN 2020 - Present",
         logoSrc:
           "https://saintmarysbasilica.org/wp-content/uploads/2025/03/cropped-lgogog2.png",
@@ -456,7 +506,14 @@ const config = {
         bullets: [
           "Assembled an app that sends notifications to discord channels when users make changes to a Notion database",
         ],
-        note: <a href="https://github.com/BenjaminHerrera/Notion2Discord" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/BenjaminHerrera/Notion2Discord"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "MLDevTemplate",
@@ -464,7 +521,14 @@ const config = {
         bullets: [
           "Composed an easy-to-use template for ML research and development, removing time needed to start projects",
         ],
-        note: <a href="https://github.com/BenjaminHerrera/MLDevTemplate" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/BenjaminHerrera/MLDevTemplate"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "PDTs and Awards Tracker",
@@ -472,7 +536,14 @@ const config = {
         bullets: [
           "Built a desktop application to help AFROTC cadre track awards and opportunities for cadets every academic year",
         ],
-        note: <a href="https://github.com/Detachment025/PDT-Awards-Tracker" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/Detachment025/PDT-Awards-Tracker"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "Instruct",
@@ -480,7 +551,14 @@ const config = {
         bullets: [
           "Constructed a website for labs to display instructions and input observations, preventing cross contamination",
         ],
-        note: <a href="https://github.com/instruct-io" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/instruct-io"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "Fablr-Art",
@@ -488,7 +566,14 @@ const config = {
         bullets: [
           "Competed in a hackathon to make a website that prompts users to create artificially generated stories",
         ],
-        note: <a href="https://github.com/BenjaminHerrera/fablr-art" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/BenjaminHerrera/fablr-art"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "CPDLScraper",
@@ -496,7 +581,14 @@ const config = {
         bullets: [
           "Formulated a system a scrape CPDL.org to collect music lyrics and MIDI files and store them into a database",
         ],
-        note: <a href="https://github.com/VIVYNet/CPDLScraper" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/VIVYNet/CPDLScraper"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "IMSLPScraper",
@@ -504,7 +596,14 @@ const config = {
         bullets: [
           "Devised a script to scrape the IMSLP.org website to collect and save musical lyrics and other musical data",
         ],
-        note: <a href="https://github.com/VIVYNet/CPDLScraper" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/VIVYNet/CPDLScraper"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
       {
         title: "LiederScraper",
@@ -512,7 +611,14 @@ const config = {
         bullets: [
           "Produced a system to scrape lieder.net to compile all the musical lyrics and information from the website",
         ],
-        note: <a href="https://github.com/VIVYNet/CPDLScraper" className="text-sky-300 underline">Link</a>
+        note: (
+          <a
+            href="https://github.com/VIVYNet/CPDLScraper"
+            className="text-sky-300 underline"
+          >
+            Link
+          </a>
+        ),
       },
     ],
   },

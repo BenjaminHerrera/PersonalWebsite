@@ -80,24 +80,10 @@ export default function Background({ include_navbar = true }) {
           {/* Academic Accolades */}
           <div className="flex flex-col items-center gap-[16px]">
             <div className="libre-franklin-bold mr-[1.5vw] max-w-4xl text-center text-[48px] leading-tight text-shadow-lg md:text-[80px] lg:text-[112px]">
-              🏅<div></div>
-              Academic Accolades
+              🏅 Accolades
             </div>
             <ul className="mx-auto max-w-3xl space-y-3">
-              {BACKGROUND.academic_accolades.map((it, index) => (
-                <ResearchItem key={"accolades-" + index} {...it} />
-              ))}
-            </ul>
-          </div>
-
-          {/* Other Accolades */}
-          <div className="flex flex-col items-center gap-[16px]">
-            <div className="libre-franklin-bold mr-[1.5vw] max-w-4xl text-center text-[48px] leading-tight text-shadow-lg md:text-[80px] lg:text-[112px]">
-              🏆<div></div>
-              Other Accolades
-            </div>
-            <ul className="mx-auto max-w-3xl space-y-3">
-              {BACKGROUND.other_accolades.map((it, index) => (
+              {BACKGROUND.accolades.map((it, index) => (
                 <ResearchItem key={"accolades-" + index} {...it} />
               ))}
             </ul>
