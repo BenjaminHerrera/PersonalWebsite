@@ -208,7 +208,7 @@ const config = {
       {
         title:
           "Multi-Head LatentMoE and Head Parallel: Communication-Efficient and Deterministic MoE Parallelism",
-        date: "FEB 2026",
+        date: "APR 2026",
         authors: [
           { name: "Chenwei Cui", marker: "*" },
           { name: "Rockwell Jackson", marker: "*" },
