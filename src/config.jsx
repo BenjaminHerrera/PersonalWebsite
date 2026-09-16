@@ -359,6 +359,15 @@ const config = {
     ],
     accolades: [
       {
+        title: "Front-Page Graduate Honors ",
+        note: (
+          <>
+            <i>The Filipino American Journal</i>
+          </>
+        ),
+        date: "JUN 2025",
+      },
+      {
         title: "Dean's List (x8)",
         note: (
           <>
