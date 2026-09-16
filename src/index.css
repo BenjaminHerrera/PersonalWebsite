@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+
+
+/*
+..........................................
+..%%%%%%...%%%%...%%..%%..%%%%%%...%%%%...
+..%%......%%..%%..%%%.%%....%%....%%......
+..%%%%....%%..%%..%%.%%%....%%.....%%%%...
+..%%......%%..%%..%%..%%....%%........%%..
+..%%.......%%%%...%%..%%....%%.....%%%%...
+..........................................
+*/
+
+.libre-franklin-normal {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.libre-franklin-bold {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* 
+....................................................
+..%%..%%...%%%%...%%..%%....%%%%%....%%%%...%%%%%...
+..%%%.%%..%%..%%..%%..%%....%%..%%..%%..%%..%%..%%..
+..%%.%%%..%%%%%%..%%..%%....%%%%%...%%%%%%..%%%%%...
+..%%..%%..%%..%%...%%%%.....%%..%%..%%..%%..%%..%%..
+..%%..%%..%%..%%....%%......%%%%%...%%..%%..%%..%%..
+....................................................
+*/
+
+.nav-button {
+  @apply relative inline-flex items-center gap-2 rounded-lg bg-transparent px-3 py-2 text-white transition-all duration-200;
+}
+
+.nav-button-desktop {
+  @apply px-2 lg:px-4;
+}
+
+.nav-button-mobile {
+  @apply px-3 py-3 text-base;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+}
+
+.nav-button:hover::before {
+  width: 100%;
+}
+
+.nav-button-mobile:hover::before {
+  width: 0;
+}
+
+.nav-button-mobile:hover {
+  @apply bg-white/20;
+  filter: none;
+}
+
+.scholar-link::before {
+  background-color: #8ab4f8;
+  box-shadow: 0 0 10px rgba(138, 180, 248, 0.9);
+}
+
+.scholar-link:hover,
+.scholar-link:focus-visible {
+  color: #dbeafe;
+  filter: drop-shadow(0 0 5px rgba(138, 180, 248, 0.95))
+    drop-shadow(0 0 12px rgba(66, 133, 244, 0.75));
+  text-shadow: 0 0 12px rgba(138, 180, 248, 0.8);
+}
+
+.scholar-icon {
+  height: 1.6em;
+  width: 1.6em;
+  flex-shrink: 0;
+  transition: transform 200ms ease;
+}
+
+.scholar-link {
+  justify-content: center;
+}
+
+.scholar-link:hover .scholar-icon,
+.scholar-link:focus-visible .scholar-icon {
+  transform: scale(1.08);
+}
+
+.nav-button-mobile.scholar-link:hover,
+.nav-button-mobile.scholar-link:focus-visible {
+  background-color: rgba(66, 133, 244, 0.18);
+}
+
+/* MOBILE MENU ANIMATIONS */
+.mobile-menu {
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.mobile-menu-closed {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0.95);
+}
+
+.mobile-menu-open {
+  max-height: 300px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.mobile-menu-open .nav-button-mobile {
+  animation: slideInFromTop 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@keyframes slideInFromTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

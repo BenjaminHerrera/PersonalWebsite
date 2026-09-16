@@ -1,0 +1,136 @@
+import { NAME, navigation } from "../config.jsx";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { SiGooglescholar } from "react-icons/si";
+
+function NavigationItem({ item, mobile = false, index = 0, onNavigate }) {
+  const className = [
+    "libre-franklin-normal nav-button",
+    mobile ? "nav-button-mobile flex w-full text-left" : "nav-button-desktop",
+    item.icon === "google-scholar" ? "scholar-link" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const content = (
+    <>
+      {item.icon === "google-scholar" ? (
+        <>
+          <SiGooglescholar className="scholar-icon" aria-hidden="true" />
+          <span className="sr-only">{item.label}</span>
+        </>
+      ) : (
+        <span>{item.label}</span>
+      )}
+    </>
+  );
+
+  const sharedProps = {
+    className,
+    onClick: onNavigate,
+    ...(item.icon === "google-scholar"
+      ? { "aria-label": item.label, title: item.label }
+      : {}),
+    ...(mobile ? { style: { animationDelay: `${index * 50}ms` } } : {}),
+  };
+
+  if (item.external) {
+    return (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...sharedProps}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={item.link} {...sharedProps}>
+      {content}
+    </Link>
+  );
+}
+
+export default function NavBar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full border-b border-white/20 bg-white/25 backdrop-blur-sm`}
+      style={{ zIndex: 20 }}
+    >
+      <div className="mx-auto max-w-7xl p-2 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between sm:h-16">
+          {/* Name */}
+          <Link to="/" className="flex-shrink-0">
+            <h1 className="libre-franklin-bold text-3xl tracking-[-0.1em] text-white md:text-5xl">
+              {NAME}
+            </h1>
+          </Link>
+
+          {/* Desktop Navigation Buttons */}
+          <div className="hidden flex-shrink-0 space-x-2 sm:flex lg:space-x-4">
+            {navigation.items.map((item) => (
+              <NavigationItem
+                item={item}
+                key={`default_button-${item.label}`}
+              />
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="sm:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="libre-franklin-normal rounded-lg p-2 text-white transition-all duration-200 hover:bg-white/20"
+              aria-label="Toggle mobile menu"
+            >
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          className={`mobile-menu sm:hidden ${isMobileMenuOpen ? "mobile-menu-open" : "mobile-menu-closed"}`}
+        >
+          <div className="space-y-1 px-2 pt-2 pb-3">
+            {navigation.items.map((item, index) => (
+              <NavigationItem
+                item={item}
+                mobile
+                index={index}
+                onNavigate={() => setIsMobileMenuOpen(false)}
+                key={`mobile_button-${item.label}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
